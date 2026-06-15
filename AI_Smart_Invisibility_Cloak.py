@@ -116,6 +116,21 @@ while True:
 
     if not ret:
         break
+    key = cv2.waitKey(1) & 0xFF
+
+    if key == ord('b'):
+
+        background = frame.copy()
+
+        cv2.imwrite(
+            "background.jpg",
+            background
+        )
+
+        print("New background captured!")
+
+    if key == ord('q'):
+        break
 
     # ----------------------------
     # HAND GESTURE DETECTION
@@ -304,8 +319,6 @@ while True:
         output
     )
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
 
 cap.release()
 cv2.destroyAllWindows()
